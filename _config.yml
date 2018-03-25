@@ -6,10 +6,11 @@ twitter_username: robertsanseries
 github_username:  robertsanseries
 googleplus_username: robertsanseries
 
-head-title: Dependency Manager for Vala
+head-title: Vanat - Dependency Manager for Vala
 title: Vanat
 
-baseurl: "https://vanat.github.io"    # the subpath of your site, "/blog"
+baseurl: "https://vanat.github.io"
+#baseurl: "/vanat"    # the subpath of your site, "/blog"
 url: ""
 
 # footer 
