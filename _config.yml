@@ -55,14 +55,15 @@ gems: [jekyll-paginate, jekyll-last-modified-at, jemoji]
 
 # Color
 # All css class, see: http://materializecss.com/color.html
-header-color: "deep-orange lighten-4"
+header-color: "white"
 head-theme-color: ""     # MUST in hex format, may the same as header-color. This color is for android chrome browser.
 
 footer-color: "deep-orange lighten-4"
+footer-color-below: ""
 #footer-button-color: "indigo lighten-2"
 #footer-link-color: "red-text text-accent-1"
 
-share-button-color: "#9D3E4B"
+share-button-color: "deep-orange lighten-4"
 #share-button-small-color: ""
 
 
