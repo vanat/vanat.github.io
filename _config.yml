@@ -60,8 +60,8 @@ head-theme-color: ""     # MUST in hex format, may the same as header-color. Thi
 
 footer-color: "deep-orange lighten-4"
 footer-color-below: ""
-#footer-button-color: "indigo lighten-2"
-#footer-link-color: "red-text text-accent-1"
+#footer-button-color: ""
+#footer-link-color: ""
 
 share-button-color: "deep-orange lighten-4"
 #share-button-small-color: ""
