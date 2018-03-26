@@ -129,6 +129,35 @@ layout: default
           <i class="mdi mdi-pin right deep-orange-text text-lighten-3 hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
+          <p><h5 style="color: #ff8a65">Project Setup</h5> To start using Vanat in your project, all you need is a <code style="color: #ff8a65">vanat.json</code> file. This file describes the dependencies of your project and may contain other metadata as well.
+          </p>
+          <p><h6 style="color: #ff8a65">The <code style="color: #ff8a65">require</code> Key</h6> The first (and often only) thing you specify in <code style="color: #ff8a65">vanat.json</code> is the <code style="color: #0086B3">require</code> key. You are simply telling Vanat which packages your project depends on.</p>
+
+          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">{</span>
+    <span class="k">"require"</span>: <span class="n">{</span>
+        <span class="k">"vala-development-kit/vdk": "1.0.*"</span>
+    <span class="n">}</span>
+<span class="n">}</span></code></pre></figure>
+
+          <p>As you can see, <code style="color: #0086B3">require</code> takes an object that maps package names (e.g. <code style="color: #000000">vala-development-kit/vdk</code>) to version constraints (e.g. 0.1.*).</p>
+
+          <p>Vanat uses this information to search for the right set of files in package <code style="color: #ff8a65">"repositories"</code> that you register using the repositories key, or in VPackagist, the default package repository. In the above example, since no other repository has been registered in the <code style="color: #ff8a65">vanat.json</code> file, it is assumed that the monolog/monolog package is registered on Packagist.</p>
+
+        <p><h6 style="color: #ff8a65">Package Names</h6>
+            The package name consists of a vendor name and the project's name. Often these will be identical - the vendor name just exists to prevent naming clashes. For example, it would allow two different people to create a library named json. One might be named <code style="color: #000000">igorw/json</code> while the other might be <code style="color: #000000">seldaek/json</code>.</p>          
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-heading">
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header favo">
+          <i class="fa fa-cubes deep-orange-text text-lighten-3"></i> &nbsp; VPackagist
+          <i class="mdi mdi-pin right deep-orange-text text-lighten-3  hide-on-small-only"></i>
+        </div>
+        <div class="collapsible-body">
           <p>{{ site.descrpt }}</p>
         </div>
       </li>
@@ -139,15 +168,18 @@ layout: default
     <ul class="collapsible popout" data-collapsible="accordion">
       <li>
         <div class="collapsible-header favo">
-          <i class="fa fa-cubes deep-orange-text text-lighten-3"></i> &nbsp; Packagist
+          <i class="fab fa-github-alt deep-orange-text text-lighten-3"></i> &nbsp; Report problems or improvement
           <i class="mdi mdi-pin right deep-orange-text text-lighten-3  hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
-          <p>{{ site.descrpt }}</p>
+          <p>Found a bug or did you have any idea how to improve vanat? We'd love to hear about it! Please report all issues about the issues in our <a href="https://github.com/vanat/vanat/issues" target="_blank">github</a>.</p>
         </div>
       </li>
     </ul>
   </div>
+
+
+
 
   <br><br>
 
