@@ -2,33 +2,39 @@
     <div class="container">
       <div class="row">
         <div class="col l4 s12">
-          <h5 class="white-text">About</h5>
-          <p class="grey-text text-lighten-4">
+          <h5 class="black-text">About</h5>
+          <p class="black-text text-lighten-4">
               "{{ site.description }}"
           </p>
         </div>
 
-        <div class="col l4 s12 right">
+        <div class="col l2 s12 right">
           <h5 class="white-text">Connect</h5>
           <ul>
-            {% if site.github_username %}
-            <li><a href="https://github.com/{{ site.github_username }}" class="white-text text-lighten-3 btn waves-effect waves-light {{ site.footer-button-color }} lighten-3"><i class="mdi mdi-github-circle"></i></a></li>
+            {% if site.url_vanat_github %}
+            <li>
+              <a href="{{ site.url_vanat_github }}" class="white-text text-lighten-3 btn waves-effect black {{ site.footer-button-color }} lighten-3" target="_blank" title="GitHub">
+                <i class="mdi mdi-github-circle"></i>
+              </a>
+            </li>
             {% endif %}
-            {% if site.googleplus_username %}
-            <li><a href="https://plus.google.com/+{{ site.googleplus_username }}" class="white-text text-lighten-3 btn waves-effect waves-light {{ site.footer-button-color }} lighten-3"><i class="mdi mdi-google-plus"></i></a></li>
-            {% endif %}
-            {% if site.twitter_username %}
-            <li><a href="https://twitter.com/{{ site.twitter_username }}" class="white-text text-lighten-3 btn waves-effect waves-light {{ site.footer-button-color }} lighten-3"><i class="mdi mdi-twitter"></i></a></li>
+            {% if site.url_vanat_gitter %}
+            <li>
+              <a href="{{ site.url_vanat_gitter }}" class="white-text text-lighten-3 btn deep-orange darken-4 waves-light {{ site.footer-button-color }} lighten-3" target="_blank" title="Gitter">
+                <i class="fa fa-comments fa-lg"></i>
+              </a>
+            </li>
             {% endif %}
           </ul>
         </div>
-
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-        Copyright © {{ site.author }}, under<a class="{{ site.footer-link-color }}" href="https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0</a> Powered by <a class="{{ site.footer-link-color }}" href="http://jekyllrb.com/">Jekyll</a>.
-        <a class="btn waves-effect waves-light {{ site.footer-button-color }} lighten-1 right white-text" href="{{ '/about' | prepend: site.baseurl }}" >Contact me</a>
+      <div class="container black-text">
+        Vanat is a trademark of {{ site.author }}. copyright © {{ site.author }}
+        <a class="btn waves-effect waves-light {{ site.footer-button-color }} lighten-1 right white-text" href="mailto: {{ site.email }}" >
+          <i class="fa fa-envelope fa-lg"></i>&nbsp; Contact me
+        </a>
       </div>
     </div>
   </footer>
