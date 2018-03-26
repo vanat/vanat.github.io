@@ -32,8 +32,8 @@ layout: default
     <ul class="collapsible popout" data-collapsible="accordion">
       <li>
         <div class="collapsible-header favo">
-          <i class="mdi mdi-weather-windy-variant"></i>Introduction 
-          <i class="mdi mdi-pin right pink-text hide-on-small-only"></i>
+          <i class="fas fa-play deep-orange-text text-lighten-3"></i> &nbsp; Introduction 
+          <i class="mdi mdi-pin right deep-orange-text text-lighten-3 hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
           
@@ -76,8 +76,57 @@ layout: default
     <ul class="collapsible popout" data-collapsible="accordion">
       <li>
         <div class="collapsible-header favo">
-          <i class="mdi mdi-weather-windy-variant"></i> {{ site.favo }}
-          <i class="mdi mdi-pin right pink-text hide-on-small-only"></i>
+          <i class="fas fa-server deep-orange-text text-lighten-3"></i> &nbsp; Installation
+          <i class="mdi mdi-pin right deep-orange-text text-lighten-3 hide-on-small-only"></i>
+        </div>
+        <div class="collapsible-body">
+          <p><h5 style="color: #ff8a65">System Requirements</h5> The Vana has a few system requirements.You will need to make sure your desktop meets the following requirements:</p>
+
+          <ul>
+            <li>vala (>=0.36)</li>
+            <li>meson (>=0.40)</li>
+            <li>git</li>
+            <li>gio-2.0</li>
+            <li>gee-0.8</li>
+            <li>gobject-2.0</li>
+            <li>json-glib-1.0</li>
+          </ul>
+
+          Make the clone of the repository and then go to the folder.
+
+          <p><h5 style="color: #ff8a65">Installing Vanat</h5>
+
+          Make the clone of the repository and then go to the folder.</p>
+
+          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="k">git</span> <span class="nb">clone</span> <span class="s2">https://github.com/vanat/vanat.git</span><br><span class="n">$</span> <span class="s2">cd</span> <span class="s2">vanat</span></code></pre></figure>
+
+          </p> Run meson build to configure the build environment. Change to the build directory and run ninja test to build and run automated tests</p>
+
+          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="k">meson</span> <span class="nb">build</span> <span class="s2">--prefix=/usr</span><br><span class="n">$</span> <span class="s2">cd</span> <span class="nb">build</span><br><span class="n">$</span> <span class="k">ninja</span> </code></pre></figure>
+
+          <p>To install, use ninja install, then execute with valet</p>
+
+          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="s2">sudo</span> <span class="k">ninja</span> <span class="nb">install</span><br><span class="n">$</span> <span class="s2">vanat</span></code></pre></figure>
+
+          <p>To verify that Vanat has been properly installed, type in the terminal:</p>
+
+          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="k">vanat</span> <span class="s2">-v</span></code></pre></figure>
+
+          <p>If the output is correctly installed, the output should be:</p>
+
+          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="s2">vanat version 0.1.0</span></code></pre></figure>
+         
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-heading">
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header favo">
+          <i class="fas fa-desktop deep-orange-text text-lighten-3"></i> &nbsp; Using Vanat
+          <i class="mdi mdi-pin right deep-orange-text text-lighten-3 hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
           <p>{{ site.descrpt }}</p>
@@ -90,50 +139,8 @@ layout: default
     <ul class="collapsible popout" data-collapsible="accordion">
       <li>
         <div class="collapsible-header favo">
-          <i class="mdi mdi-weather-windy-variant"></i> {{ site.favo }}
-          <i class="mdi mdi-pin right pink-text hide-on-small-only"></i>
-        </div>
-        <div class="collapsible-body">
-          <p>{{ site.descrpt }}</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="page-heading">
-    <ul class="collapsible popout" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header favo">
-          <i class="mdi mdi-weather-windy-variant"></i> {{ site.favo }}
-          <i class="mdi mdi-pin right pink-text hide-on-small-only"></i>
-        </div>
-        <div class="collapsible-body">
-          <p>{{ site.descrpt }}</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="page-heading">
-    <ul class="collapsible popout" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header favo">
-          <i class="mdi mdi-weather-windy-variant"></i> {{ site.favo }}
-          <i class="mdi mdi-pin right pink-text hide-on-small-only"></i>
-        </div>
-        <div class="collapsible-body">
-          <p>{{ site.descrpt }}</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="page-heading">
-    <ul class="collapsible popout" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header favo">
-          <i class="mdi mdi-weather-windy-variant"></i> {{ site.favo }}
-          <i class="mdi mdi-pin right pink-text hide-on-small-only"></i>
+          <i class="fa fa-cubes deep-orange-text text-lighten-3"></i> &nbsp; Packagist
+          <i class="mdi mdi-pin right deep-orange-text text-lighten-3  hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
           <p>{{ site.descrpt }}</p>
