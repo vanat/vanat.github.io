@@ -129,23 +129,51 @@ layout: default
           <i class="mdi mdi-pin right deep-orange-text text-lighten-3 hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
-          <p><h5 style="color: #ff8a65">Project Setup</h5> To start using Vanat in your project, all you need is a <code style="color: #ff8a65">vanat.json</code> file. This file describes the dependencies of your project and may contain other metadata as well.
-          </p>
-          <p><h6 style="color: #ff8a65">The <code style="color: #ff8a65">require</code> Key</h6> The first (and often only) thing you specify in <code style="color: #ff8a65">vanat.json</code> is the <code style="color: #0086B3">require</code> key. You are simply telling Vanat which packages your project depends on.</p>
+            <p><h5 style="color: #ff8a65">Project Setup</h5>To start using Vanat in your project, all you need to do is create a <code style="color: #00bcd4">vanat.json</code> file. This file will have the dependency settings for your project. It can be considered as a search list for Vanat; It will only download the packages (dependencies) for your project that are mentioned in this file.</p>
 
-          <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">{</span>
-    <span class="k">"require"</span>: <span class="n">{</span>
-        <span class="k">"vala-development-kit/vdk": "1.0.*"</span>
+            <p>Below is a basic skeleton of <code style="color: #00bcd4">vanat.json</code>, the file in which the dependencies will be described, then the same will be clarified.</p>
+
+            <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">{</span>
+    <span class="k">"name"</span>:<span class="k">"Project name",</span>
+    <span class="k">"description"</span>: <span class="k">"Brief description of what the application proposes to do", </span>
+    <span class="k">"require"</span>:<span class="k">{</span>
+        <span class="k">"vala"</span>:<span class="k">"0.36.*"</span>
     <span class="n">}</span>
 <span class="n">}</span></code></pre></figure>
 
-          <p>As you can see, <code style="color: #0086B3">require</code> takes an object that maps package names (e.g. <code style="color: #000000">vala-development-kit/vdk</code>) to version constraints (e.g. 0.1.*).</p>
+            <p>The <code style="color: #0086B3">name</code> is the name of your application. This marking is optional but recommended.</p>
 
-          <p>Vanat uses this information to search for the right set of files in package <code style="color: #ff8a65">"repositories"</code> that you register using the repositories key, or in VPackagist, the default package repository. In the above example, since no other repository has been registered in the <code style="color: #ff8a65">vanat.json</code> file, it is assumed that the monolog/monolog package is registered on Packagist.</p>
+            <p>The <code style="color: #0086B3">description</code> is a brief description of what your application proposes to do. Also optional.</p>
 
-        <p><h6 style="color: #ff8a65">Package Names</h6>
-            The package name consists of a vendor name and the project's name. Often these will be identical - the vendor name just exists to prevent naming clashes. For example, it would allow two different people to create a library named json. One might be named <code style="color: #000000">igorw/json</code> while the other might be <code style="color: #000000">seldaek/json</code>.</p>          
-        </div>
+            <p>The <code style="color: #0086B3">require</code> is basically the key of everything and the only obligatory markup. In it you make clear what are the dependencies of your application. In this case if the vala version is below <code style="color: #000000">0.36</code> then an error message will be thrown when installing the dependencies informing you that it is not possible to proceed because not all requirements are satisfied.</p>
+
+            <p>As you can see above this is the skeleton of a very basic application, with no advanced settings and no indication of any third party library.</p>
+
+            <p><h6 style="color: #ff8a65">Okay, but what now?</h6>Now that you already have the vanat skeleton configured in your application we will include some packages. Vanat uses as its repository the <code style="color: #795548">VPackagist</code> where any developer can create their own packages and make them available to the community similar to github. <code style="color: #795548">VPackagist</code> can provide you with several packages.</p>
+
+            <p><h6 style="color: #ff8a65">A small example</h6>For teaching purposes I will show here the use of a library for vdk created by Robert San. In the section where you define the requirements (require) in the <code style="color: #00bcd4">vanat.json</code> file simply add just below the line that defines that the vala needs the desired package name and version. In this case the package is <code style="color: #0086B3">vala-development-kit/vdk</code> and the version is <code style="color: #000000">0.1.*</code>. With this the new structure of <code style="color: #00bcd4">vanat.json</code> is:</p>
+
+            <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">{</span>
+    <span class="k">"name"</span>:<span class="k">"Project name",</span>
+    <span class="k">"description"</span>: <span class="k">"Brief description of what the application proposes to do", </span>
+    <span class="k">"require"</span>:<span class="k">{</span>
+        <span class="k">"vala"</span>:<span class="k">"0.36.*"</span>
+        <span class="k">"vala-development-kit/vdk"</span>:<span class="k">"0.1.*"</span>
+    <span class="n">}</span>
+<span class="n">}</span></code></pre></figure>
+
+            <p>Vanat works with a package repository, <code style="color: #795548">VPackagist</code> (the official destination for packages created for Vanat). This is where you find the name and version of the packages you can use in your project. Then it is assumed that the <code style="color: #0086B3">vala-development-kit/vdk</code> package is registered in <code style="color: #795548">VPackagist</code>.</p>
+
+            <p><h6 style="color: #ff8a65">All ready</h6>Okay, now it's all ready for you to see the vanat in action. In the root folder of your application (which is the same as <code style="color: #00bcd4">vanat.json</code> is) run the <code style="color: #5EA300">vanat install</code> command. This command will make the vanat read the settings set in the json file and install all the libraries/packages needed for your application and also these same libraries that have dependencies will have the same ones solved. Think of vanat more or less like Linux debian apt-get. In it, when installing any package, all its dependencies are resolved automatically.</p>
+
+            <p>Note that in the folder where your application is now there is the <code style="color: #5EA300">vendor</code> folder, a vanat file (which was already there) and a vanat.lock file - which is the file that was automatically generated after the installation was successful.</p>
+
+            <p><h5 style="color: #ff8a65">Installing a library directly</h5>If you decide to install a package without having to edit the <code style="color: #00bcd4">vanat.json</code> file, simply notify the vanat of your choice so that it can add it to your project. To do this, type the following command on the terminal:</p>
+
+            <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="k">vanat</span> <span class="nb">require</span> <span class="s2">vala-development-kit/vdk</span></code></pre></figure>
+
+
+            <p><h5 style="color: #ff8a65">Package Names</h5>The package name consists of a <code style="color: #5EA300">vendor</code> name and the project's name. Often these will be identical - the vendor name just exists to prevent naming clashes. For example, it would allow two different people to create a library named json. One might be named <code style="color: #0086B3">igorw/json</code> while the other might be <code style="color: #0086B3">seldaek/json</code>.</p>
       </li>
     </ul>
   </div>
@@ -158,7 +186,10 @@ layout: default
           <i class="mdi mdi-pin right deep-orange-text text-lighten-3  hide-on-small-only"></i>
         </div>
         <div class="collapsible-body">
-          <p>{{ site.descrpt }}</p>
+          <p><h5 style="color: #ff8a65">What is VPackagist?</h5><code style="color: #795548">VPackagist</code> is the default Vanat package repository. It lets you find packages and lets Vanat know where to get the code from.</p>
+
+        <p>You can find the <code style="color: #0086B3">vanat.github.io/vpackagist</code> source on <a href="https://github.com/vanat/vpackagist" target="_blank">GitHub</a>.</p>
+        </p>
         </div>
       </li>
     </ul>
