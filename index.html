@@ -139,10 +139,10 @@
                   <li>gio-2.0</li>
                   <li>gee-0.8</li>
                   <li>gobject-2.0</li>
+                  <li>libarchive</li>
+                  <li>libsoup-2.4</li>
                   <li>json-glib-1.0</li>
                 </ul>
-
-                Make the clone of the repository and then go to the folder.
 
                 <p>
                 <h5 style="color: #ff8a65">Installing Vanat</h5>
@@ -150,14 +150,28 @@
                 Make the clone of the repository and then go to the folder.</p>
 
                 <figure class="highlight">
-                  <pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="k">git</span> <span class="nb">clone</span> <span class="s2">https://github.com/vanat/vanat.git</span><br><span class="n">$</span> <span class="s2">cd</span> <span class="s2">vanat</span></code></pre>
+                  <pre><code class="language-ruby" data-lang="ruby"><span class="k">git</span> <span class="nb">clone</span> <span class="s2">https://github.com/vanat/vanat.git</span></code></pre>
+                </figure>
+          
+                Access the project folder
+          
+                <figure class="highlight">
+                  <pre><code class="language-ruby" data-lang="ruby"><span class="s2">cd</span> <span class="s2">vanat</span></code></pre>
                 </figure>
 
                 </p> Run meson build to configure the build environment. Change to the build directory and run ninja
                 test to build and run automated tests</p>
 
                 <figure class="highlight">
-                  <pre><code class="language-ruby" data-lang="ruby"><span class="n">$</span> <span class="k">meson</span> <span class="nb">build</span> <span class="s2">&&</span> cd <span class="nb">build</span><br><span class="n">$</span> <span class="k">meson</span> <span class="nb">configure</span> <span class="s2">-Dprefix=/usr</span> <br><span class="n">$</span> <span class="k">ninja</span> </code></pre>
+                  <pre><code class="language-ruby" data-lang="ruby"><span class="k">meson</span> <span class="nb">build</span> <span class="s2">&&</span> cd <span class="nb">build</span></code></pre>
+                </figure>
+
+                <figure class="highlight">
+                  <pre><code class="language-ruby" data-lang="ruby"><span class="k">meson</span> <span class="nb">configure</span> <span class="s2">-Dprefix=/usr</span></code></pre>
+                </figure>
+
+                <figure class="highlight">
+                  <pre><code class="language-ruby" data-lang="ruby"><span class="k">ninja</span> </code></pre>
                 </figure>
 
                 <p>To install, use ninja install, then execute with valet</p>
