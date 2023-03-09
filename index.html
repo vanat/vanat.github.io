@@ -136,13 +136,59 @@
                   <li>vala (>=0.36)</li>
                   <li>meson (>=0.40)</li>
                   <li>git</li>
-                  <li>gio-2.0</li>
                   <li>gee-0.8</li>
-                  <li>gobject-2.0</li>
                   <li>libarchive</li>
                   <li>libsoup-2.4</li>
                   <li>json-glib-1.0</li>
                 </ul>
+
+                <br>
+
+                <h5 style="color: #ff8a65">First install the tools and libraries used by the project</h5>
+
+                Install Vala
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">valac</span></pre>
+                </figure>
+
+                Install Meson
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">meson</span></pre>
+                </figure>
+
+                Install Git
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">git</span></pre>
+                </figure>
+
+                Install Libgee-0.8
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">libgee-0.8-dev</span></pre>
+                </figure>
+
+                Install Libarchive
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">libarchive-dev</span></pre>
+                </figure>
+
+                Install Libsoup
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">libsoup2.4-dev</span></pre>
+                </figure>
+
+                Install Json-glib
+
+                <figure class="highlight">
+                  <pre><span class="k">sudo</span> <span class="nb">apt install</span> <span class="s2">libjson-glib-dev</span></pre>
+                </figure>
+
+                <br>
 
                 <p>
                 <h5 style="color: #ff8a65">Installing Vanat</h5>
@@ -210,9 +256,7 @@
                   <li>vala (>=0.36)</li>
                   <li>meson (>=0.40)</li>
                   <li>git</li>
-                  <li>gio-2.0</li>
                   <li>gee-0.8</li>
-                  <li>gobject-2.0</li>
                   <li>libarchive</li>
                   <li>libsoup-2.4</li>
                   <li>json-glib-1.0</li>
@@ -239,34 +283,60 @@
                   <pre><span class="k">brew</span> <span class="nb">install</span> <span class="s2">meson</span></pre>
                 </figure>
 
-                Install git
+                Install Git
 
                 <figure class="highlight">
                   <pre><span class="k">brew</span> <span class="nb">install</span> <span class="s2">git</span></pre>
                 </figure>
 
-                Install libarchive
+                Install Libarchive
 
                 <figure class="highlight">
                   <pre><span class="k">brew</span> <span class="nb">install</span> <span class="s2">libarchive</span></pre>
+
+                  <pre>The libarchive is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have libarchive first in your PATH, run:
+<span class="k">echo</span> <span class="nb">'export PATH="/usr/local/opt/libarchive/bin:$PATH"'</span> >> <span class="s2">~/.zshrc</span>
+
+For compilers to find libarchive you may need to set:
+<span class="k">export</span> <span class="nb">LDFLAGS="-L/usr/local/opt/libarchive/lib"</span>
+<span class="k">export</span> <span class="nb">CPPFLAGS="-I/usr/local/opt/libarchive/include"</span>
+
+The CPPFLAGS and CXXFLAGS are environment variables used to set compilation options that will 
+be passed to the preprocessor and compiler, respectively. These options can include, for example, 
+directories for header file inclusion, optimization flags, among others.
+
+To configure multiple items in CPPFLAGS and CXXFLAGS, you can use the shell's list syntax, 
+separating each item with a whitespace. For example:
+
+<span class="k">export</span> <span class="nb">LDFLAGS="-L/usr/local/opt/openssl@3/lib -L/usr/local/opt/libarchive/lib"</span>
+<span class="k">export</span> <span class="nb">CPPFLAGS="-I/usr/local/opt/openssl@3/include -I/usr/local/opt/libarchive/include"</span>
+
+For pkg-config to find libarchive you may need to set:
+<span class="k">export</span> <span class="nb">PKG_CONFIG_PATH="/usr/local/opt/libarchive/lib/pkgconfig"</span>
+
+To configure multiple items in PKG_CONFIG_PATH, you can use the following command in a Linux or macOS terminal:
+
+<span class="k">export</span> <span class="nb">PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig:/usr/local/opt/libarchive/lib/pkgconfig:$PKG_CONFIG_PATH"</span>
+
+Note that you can add as many directory paths as you need, separated by :. Make sure to add 
+the directories in the correct order so that dependencies are resolved correctly.
+</pre>
                 </figure>
 
-                Install libsoup
+                Install Libsoup
 
                 <figure class="highlight">
                   <pre><span class="k">brew</span> <span class="nb">install</span> <span class="s2">libsoup</span></pre>
                 </figure>
 
-                Install json-glib
+                Install Json-glib
 
                 <figure class="highlight">
                   <pre><span class="k">brew</span> <span class="nb">install</span> <span class="s2">json-glib</span></pre>
-                </figure>
-                
-                Setting environment variables to specific paths of .pc files in libraries
-
-                <figure class="highlight">
-                  <pre><span class="s2">echo 'export PKG_CONFIG_PATH="/usr/local/opt/libarchive/lib/pkgconfig:/usr/local/opt/libsoup/lib/pkgconfig:/usr/local/opt/icu4c/lib/pkgconfig"' >> ~/.zshrc</span></pre>
                 </figure>
 
                 <br>
@@ -488,7 +558,7 @@
     </div>
     <div class="footer-copyright "
       style="box-shadow: 0px 0px 2px 3px #c6c6c6 !important; background: #ffffff !important;">
-      <div class="container black-text">Copyright © 2018-2021 Vanat.</div>
+      <div class="container black-text">Copyright © 2018-2023 Vanat.</div>
     </div>
   </footer>
 
